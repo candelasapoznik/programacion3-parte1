@@ -21,8 +21,8 @@ class FilterMovie extends Component {
            <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
            <input type="submit" value="Submit" />
          </form>
-        );
+        )
         }
 }    
 
-export default FilterMovie; 
+export default FilterMovie
