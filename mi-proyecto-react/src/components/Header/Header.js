@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterMovie from './components/FilterMovie/FilterMovie'; 
+import FilterMovie from '../FilterMovie/FilterMovie'; 
 
 function Header(){
     return(
@@ -8,10 +8,10 @@ function Header(){
         <section>
             <i class="fas fa-th"></i>
             <i class="fas fa-align-justify"></i>
-            <FilterField filtrarPeliculas={(textoAEncontrar)=> this.filtrarPeliculas(textoAEncontrar)}/>
+            <FilterMovie filtrarPeliculas={(textoAEncontrar)=> this.filtrarPeliculas(textoAEncontrar)}/>
         </section>
     </header>
     )
 }
 
-export default Footer
+export default Header
