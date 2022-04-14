@@ -17,9 +17,9 @@ class FilterMovie extends Component {
     
       render() {
         return (
-         <form onSubmit={(event)=>this.evitarSubmit(event)}>
+         <form className="buscador" onSubmit={(event)=>this.evitarSubmit(event)}>
            <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-           <input type="submit" value="Submit" />
+           <input className="boton_search" type="submit" value="Submit" />
          </form>
         )
         }

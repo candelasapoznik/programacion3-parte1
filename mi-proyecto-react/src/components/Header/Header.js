@@ -4,10 +4,9 @@ import FilterMovie from '../FilterMovie/FilterMovie';
 function Header(){
     return(
     <header>
-        <h1>Movie browser</h1>
+        <h1 className='titulo'>Movie browser</h1>
+        <img src="../../../img/logo" alt="Logotipo Movie Browser" class="logo-header"></img>
         <section>
-            <i class="fas fa-th"></i>
-            <i class="fas fa-align-justify"></i>
             <FilterMovie filtrarPeliculas={(textoAEncontrar)=> this.filtrarPeliculas(textoAEncontrar)}/>
         </section>
     </header>

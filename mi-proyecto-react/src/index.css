@@ -1,3 +1,19 @@
+*{
+  box-sizing:border-box;
+}
+
+/*resets*/
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+  }
+a{
+  text-decoration: none;
+}
+
+/*GENERALES*/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +21,153 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#000000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.titulo{
+  margin: 3%;
+  color: white;
+  font-size: 20px;
+  align-self: flex-start;
+}
+
+/*ESTILO MOBILE*/
+/*header*/
+.logo-header{
+  width: 65px;
+}
+
+.buscador{
+  font-size: 10px;
+  }
+
+.boton_search{
+  font-size: 10px;
+  text-align: center;
+  }
+
+/*footer*/
+.main-footer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color:white;
+  margin-bottom: 2%;
+  border-top:solid 1px white;
+  text-align:center;
+}
+.logo-footer{
+  width: 50%;
+}
+.derechos{
+  font-size: 8px;
+}
+.nombres_developers{
+  font-size: 10px;
+}
+.icons-redes{
+  flex-direction:row;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.icons-redes li{
+  margin: 0 10px;
+}
+.ion-social-facebook{
+  width: 20%;
+  color: white;
+  font-size: 10px;
+}
+.ion-social-linkedin{
+  width: 20%;
+  color: white;
+  font-size: 10px;
+}
+.ion-social-instagram{
+  width: 20%;
+  color: white;
+  font-size: 10px;
+}
+
+/*TARJETAS*/
+.peliculas{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.movie-card{
+  font-size: 14px;
+  color: white;
+  background-color: #1f1f1f;
+  margin: 10%;
+}
+.movie-card img{
+width:100%
+}
+.boton{
+  text-decoration: underline;
+  font-size: 10px;
+  width: 40%;
+}
+
+/*ESTILO DESKTOP*/
+@media (min-width: 1024px) {
+/*GENERALES*/
+.titulo{
+  font-size: 40px;
+}
+/*footer*/
+.logo-footer{
+  width: 20%;
+}
+.derechos{
+  font-size: 15px;
+}
+.nombres_developers{
+  font-size: 20px;
+}
+.ion-social-facebook{
+  font-size: 30px;
+}
+.ion-social-linkedin{
+  font-size: 30px;
+}
+.ion-social-instagram{
+  font-size: 30px;
+}
+
+/*TARJETAS*/
+.peliculas{
+  display: flex;
+  align-items: center;
+  margin: 3%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.movie-card{
+  width: 30%;
+  font-size: 14px;
+  color: white;
+  background-color: #1f1f1f;
+  margin: 5%;
+}
+.movie-card img{
+width: 100%
+}
+.boton{
+  text-decoration: underline;
+  font-size: 10px;
+  width: 40%;
+}
 }

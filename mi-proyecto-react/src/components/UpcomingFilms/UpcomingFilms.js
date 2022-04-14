@@ -6,8 +6,8 @@ class UpcomingFilms extends Component {
         this.state = {
             peliculas: [],
             cargado: true,
-            peliculasTotal: []
-        }
+            peliculasTotal: [],
+            }
     }
     componentDidMount(){
         console.log('');
@@ -58,19 +58,7 @@ class UpcomingFilms extends Component {
                 peliculas: resultados
         })
         }
-        viewMore(){
-            if(this.state.viewMore){
-                this.setState({
-                    viewMore: false,
-                    text: 'Ver más'
-                })
-            } else {
-                this.setState({
-                    viewMore: true,
-                    text: 'ver menos'
-                })            
-            }
-        }
+
         filtrarPeliculas(textoRecibido){
             let filtrarBusqueda= this.state.peliculas.filter((element)=>element.name.toLowerCase().includes(textoRecibido.toLowerCase)) 
             this.setState({
@@ -82,8 +70,7 @@ class UpcomingFilms extends Component {
             return (
                 this.state.cargado == false ?
                 <p>Cargando...</p> :
-                <div>
-                       <button className='more' onClick={()=>this.viewMore()}>{this.state.text}</button>
+                <div className='peliculas'>
                     { <ul>
                         {
                             this.state.peliculas.map((element) => <CardPelicula key={element.id+element.nombre} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
