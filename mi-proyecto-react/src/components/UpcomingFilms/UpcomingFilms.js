@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import CardPelicula from '../CardPelicula/CardPelicula';
 class UpcomingFilms extends Component {
     constructor(){
         super()
@@ -36,11 +36,40 @@ class UpcomingFilms extends Component {
                 peliculas: resultados
             })
         }
+        addMore(){
+            let url = this.state.nextUrl;
+    
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({
+                        peliculas: this.state.peliculas.concat(data.results),
+                        nextUrl: data.info.next,  //Para tener la página siguiente.
+                    })
+                })
+                .catch( function (e){
+                    console.log(e);
+                })
+        }
         cargarTarjetas() {
             let resultados = this.state.peliculasTotal
             this.setState({
                 peliculas: resultados
         })
+        }
+        viewMore(){
+            if(this.state.viewMore){
+                this.setState({
+                    viewMore: false,
+                    text: 'Ver más'
+                })
+            } else {
+                this.setState({
+                    viewMore: true,
+                    text: 'ver menos'
+                })            
+            }
         }
         filtrarPeliculas(textoRecibido){
             let filtrarBusqueda= this.state.peliculas.filter((element)=>element.name.toLowerCase().includes(textoRecibido.toLowerCase)) 
@@ -54,12 +83,12 @@ class UpcomingFilms extends Component {
                 this.state.cargado == false ?
                 <p>Cargando...</p> :
                 <div>
-                       <button onClick={()=>this.cargarTarjetas()}>Cargar mas peliculas</button>
-                    {/* <ul>
+                       <button className='more' onClick={()=>this.viewMore()}>{this.state.text}</button>
+                    { <ul>
                         {
                             this.state.peliculas.map((element) => <CardPelicula key={element.id+element.nombre} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
                         }
-                    </ul> */}
+                    </ul> }
                 </div>
     
             )
