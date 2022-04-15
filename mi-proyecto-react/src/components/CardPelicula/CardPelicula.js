@@ -6,7 +6,7 @@ class CardPelicula extends Component{
         super(props)
         this.state = {
             viewMore: true,
-            text: "ver más",
+            text: "Ver más",
             infoAdicionalTarjeta: ""
         }
     }
@@ -14,7 +14,7 @@ class CardPelicula extends Component{
         if(this.state.viewMore){
             this.setState({
                 viewMore: false,
-                text: 'Ver más'
+                text: this.state.text
             })
         } else {
             this.setState({

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CardPelicula from '../CardPelicula/CardPelicula';
+import Header from '../Header/Header';
+
 class UpcomingFilms extends Component {
     constructor(){
         super()
@@ -7,20 +9,19 @@ class UpcomingFilms extends Component {
             peliculas: [],
             cargado: true,
             peliculasTotal: [],
+            pagina: 1
             }
     }
     componentDidMount(){
-        console.log('');
-        let url = 'https://api.themoviedb.org/3/movie/upcoming?api_key=3121857c6caecb9647e73f983b58b116&language=en-US&page=1';
-        console.log(url)
-        fetch(url)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=3121857c6caecb9647e73f983b58b116&language=en-US&page=${this.state.pagina}`)
             .then( response => response.json() )
             .then( data => {
                 console.log(data);
                 this.setState({
                     peliculas: data.results,
                     peliculasTotal: data.results,
-                    cargado: true
+                    cargado: true,
+                    pagina: this.state.pagina+1
                 })
             })
             .catch( error => console.log(error))
@@ -36,39 +37,35 @@ class UpcomingFilms extends Component {
                 peliculas: resultados
             })
         }
-        addMore(){
-            let url = this.state.nextUrl;
-    
-            fetch(url)
+        cargarMasTarjetas(){    
+            fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=3121857c6caecb9647e73f983b58b116&language=en-US&page=${this.state.pagina}`)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
                     this.setState({
                         peliculas: this.state.peliculas.concat(data.results),
-                        nextUrl: data.info.next,  //Para tener la página siguiente.
+                        pagina: this.state.pagina+1
                     })
                 })
                 .catch( function (e){
                     console.log(e);
                 })
         }
-        cargarTarjetas() {
-            let resultados = this.state.peliculasTotal
-            this.setState({
-                peliculas: resultados
-        })
-        }
 
         filtrarPeliculas(textoRecibido){
-            let filtrarBusqueda= this.state.peliculas.filter((element)=>element.name.toLowerCase().includes(textoRecibido.toLowerCase)) 
+            let filtrarBusqueda= this.state.peliculasTotal.filter((element)=>element.title.toLowerCase().includes(textoRecibido.toLowerCase())) 
             this.setState({
                 peliculas: filtrarBusqueda
             })
         }
+
         render() {
             console.log('Me renderice');
             return (
-                this.state.cargado == false ?
+                <>
+                <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/>
+                <button onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
+                {this.state.cargado == false ?
                 <p>Cargando...</p> :
                 <div className='peliculas'>
                     { <ul>
@@ -76,8 +73,8 @@ class UpcomingFilms extends Component {
                             this.state.peliculas.map((element) => <CardPelicula key={element.id+element.nombre} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
                         }
                     </ul> }
-                </div>
-    
+                </div>}
+                </>
             )
         }
     }
