@@ -17,8 +17,9 @@ class UpcomingFilms extends Component {
             .then( response => response.json() )
             .then( data => {
                 console.log(data);
-                this.setState({
-                    peliculas: data.results,
+                let peliculasAMostrar= data.results.slice(0,10)
+                this.setState({  
+                    peliculas: peliculasAMostrar,
                     peliculasTotal: data.results,
                     cargado: true,
                     pagina: this.state.pagina+1
