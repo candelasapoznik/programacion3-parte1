@@ -18,12 +18,14 @@ class Header extends Component{
       render() {
         return(
         <header>
+            <div className='logoytitulo'>
+            <img src='https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496__340.png' alt="Logotipo Movie Browser" className="logo-header"></img>
             <h1 className='titulo'>Movie browser</h1>
-            <img src="../../../img/logo" alt="Logotipo Movie Browser" className="logo-header"></img>
+            </div>
             <section>
                 <form className="buscador" onSubmit={(event)=>this.evitarSubmit(event)}>
-                    <input type="text" placeholder='Nombre de la película' onChange={(event)=>this.controlarCambios(event)} value={this.state.movie} />
-                    <input className="boton_search" type="submit" value="Submit" />
+                    <input className="buscadorTexto" type="text" placeholder='Nombre de la película' onChange={(event)=>this.controlarCambios(event)} value={this.state.movie} />
+                    <input className="boton_search" type="submit" value="Buscar" />
                 </form>
             </section>
         </header>

@@ -67,11 +67,11 @@ class UpcomingFilms extends Component {
             return (
                 <>
                 <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/>
-                <button onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
+                <button className="botonMasPeliculas" onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
                 {this.state.cargado == false ?
                 <p>Cargando...</p> :
                 <div className='peliculas'>
-                    { <ul>
+                    { <ul className='lista peliculas'>
                         {
                             this.state.peliculas.map((element) => <CardPelicula key={element.id+element.nombre} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
                         }

@@ -29,26 +29,44 @@ code {
     monospace;
 }
 .titulo{
-  margin: 3%;
+  margin: 2%;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   align-self: flex-start;
 }
 
 /*ESTILO MOBILE*/
 /*header*/
-.logo-header{
-  width: 65px;
+header{
+  margin-left: 2%;
 }
-
+.logoytitulo{
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.logo-header{
+  width: 50px;
+}
 .buscador{
-  font-size: 10px;
+  margin: 2%;
+}
+.buscadorTexto{
+  font-size: 12px;
+  margin: 1%;
+  width: 70%;
   }
 
 .boton_search{
   font-size: 10px;
   text-align: center;
   }
+
+.botonMasPeliculas{
+  margin-left: 5%;
+  font-size: 10px;
+}
 
 /*footer*/
 .main-footer{
@@ -62,7 +80,8 @@ code {
   text-align:center;
 }
 .logo-footer{
-  width: 50%;
+  margin: 2%;
+  width: 40px;
 }
 .derechos{
   font-size: 8px;
@@ -113,21 +132,54 @@ code {
 .movie-card img{
 width:100%
 }
-.boton{
-  text-decoration: underline;
-  font-size: 10px;
-  width: 40%;
+.card-content{
+margin: 2%;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+align-items: center;
+}
+
+.borrarYVerMas{
+  text-decoration: none;
+  font-size: 12px;
+  margin: 2%;
+}
+
+.verMas{
+  width: 100%;
+}
+
+.nombrePelicula{
+  font-size: 15px;
+}
+
+.descripcionPelicula{
+  font-size: 12px;
 }
 
 /*ESTILO DESKTOP*/
 @media (min-width: 1024px) {
+
 /*GENERALES*/
 .titulo{
   font-size: 40px;
 }
+
+/*header*/
+.logo-header{
+  width: 100px;
+}
+.buscadorTexto{
+  width: 50%;
+  font-size: 15px;
+}
+.boton_search{
+  font-size: 10px;
+}
 /*footer*/
 .logo-footer{
-  width: 20%;
+  width: 100px;
 }
 .derechos{
   font-size: 15px;
@@ -147,27 +199,46 @@ width:100%
 
 /*TARJETAS*/
 .peliculas{
-  display: flex;
-  align-items: center;
   margin: 3%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  margin-top: 1%;
+}
+
+.listapeliculas{
+  display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .movie-card{
-  width: 30%;
+  width: 45%;
   font-size: 14px;
   color: white;
   background-color: #1f1f1f;
-  margin: 5%;
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  
 }
-.movie-card img{
-width: 100%
+.card-content{
+  margin: 2%;
 }
-.boton{
-  text-decoration: underline;
-  font-size: 10px;
-  width: 40%;
+.card-content img{
+width: 100%;
+}
+.nombrePelicula{
+  font-size:20px;
+}
+.descripcionPelicula{
+  font-size: 15px;
+}
+.botonMasPeliculas{
+  margin-left: 5%;
+  font-size: 15px;
+}
+.borrarYVerMas{
+  font-size: 15px;
 }
 }
