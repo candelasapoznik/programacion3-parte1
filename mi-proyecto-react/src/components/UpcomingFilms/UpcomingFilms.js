@@ -43,8 +43,10 @@ class UpcomingFilms extends Component {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
+                    let peliculasAMostrar= data.results.slice(0,10)
                     this.setState({
-                        peliculas: this.state.peliculas.concat(data.results),
+                        peliculas: this.state.peliculas.concat(peliculasAMostrar),
+                        peliculasTotal:this.state.peliculasTotal.concat(peliculasAMostrar),
                         pagina: this.state.pagina+1
                     })
                 })
