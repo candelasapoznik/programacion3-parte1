@@ -9,7 +9,8 @@ class UpcomingFilms extends Component {
             peliculas: [],
             cargado: true,
             peliculasTotal: [],
-            pagina: 1
+            pagina: 1,
+            leyenda: null
             }
     }
     componentDidMount(){
@@ -57,6 +58,9 @@ class UpcomingFilms extends Component {
 
         filtrarPeliculas(textoRecibido){
             let filtrarBusqueda= this.state.peliculasTotal.filter((element)=>element.title.toLowerCase().includes(textoRecibido.toLowerCase())) 
+            if (filtrarBusqueda == 0) {
+                this.setState({leyenda:"No se encontraron resultados para tu busqueda."})
+            }
             this.setState({
                 peliculas: filtrarBusqueda
             })
@@ -65,10 +69,13 @@ class UpcomingFilms extends Component {
         render() {
             console.log('Me renderice');
             return (
+                this.state.leyenda !== null ?
                 <>
-                {this.state.peliculasTotal.length == 0 ?
-                <h3>No se encotraron resultados para tu busqueda.</h3>
-                :<Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> }
+                <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> 
+                <h3>No se encontraron resultados para tu busqueda.</h3></>
+                 : 
+                <>
+                <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> 
                 <button className="botonMasPeliculas" onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
                 {this.state.cargado == false ?
                 <p>Cargando...</p> :
