@@ -66,7 +66,9 @@ class UpcomingFilms extends Component {
             console.log('Me renderice');
             return (
                 <>
-                <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/>
+                {this.state.peliculasTotal.length == 0 ?
+                <h3>No se encotraron resultados para tu busqueda.</h3>
+                :<Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> }
                 <button className="botonMasPeliculas" onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
                 {this.state.cargado == false ?
                 <p>Cargando...</p> :
