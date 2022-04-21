@@ -59,10 +59,10 @@ class UpcomingFilms extends Component {
         filtrarPeliculas(textoRecibido){
             let filtrarBusqueda= this.state.peliculasTotal.filter((element)=>element.title.toLowerCase().includes(textoRecibido.toLowerCase())) 
             if (filtrarBusqueda == 0) {
-                this.setState({leyenda:"No se encontraron resultados para tu busqueda."})
+                this.setState({leyenda:1})
             } else{ this.setState({
                 peliculas: filtrarBusqueda,
-                leyenda: 1
+                leyenda: null
             })}
             this.setState({
                 peliculas: filtrarBusqueda
