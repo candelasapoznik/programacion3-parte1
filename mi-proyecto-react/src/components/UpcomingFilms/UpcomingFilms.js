@@ -81,7 +81,7 @@ class UpcomingFilms extends Component {
                 <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> 
                 <button className="botonMasPeliculas" onClick={()=> this.cargarMasTarjetas()}>Cargar más películas</button>
                 {this.state.cargado == false ?
-                <p>Cargando...</p> :
+                <p className='Cargado'>Cargando...</p> :
                 <div className='peliculas'>
                     { <ul className='lista peliculas'>
                         {
