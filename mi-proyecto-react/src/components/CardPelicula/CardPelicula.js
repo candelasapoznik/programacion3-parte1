@@ -27,7 +27,7 @@ class CardPelicula extends Component{
                 <div className='card-content'>
                     <img src={`https://image.tmdb.org/t/p/original${this.props.info.poster_path}`}alt="" />
                     <h4 className='nombrePelicula'>{this.props.info.title}</h4>
-                    <p className='descripcionPelicula'> {this.props.info.overview} </p>
+                    <p className='descripcion'> {this.props.info.overview} </p>
                     <button className='borrarYVerMas' onClick={()=>this.props.removerTarjetas(this.props.info.id)}>Borrar</button> {/* Aquí onClick necesita retornar la función con el parámetro pero no es necesario pasar el parámentro dentro de los () de la arrow functions. La arrow está para ejecutar el método que ya tiene el dato que necesita como parámetro.  */}
                     <button className='borrarYVerMas' onClick={()=>this.viewMore()}>{this.state.text}</button>
                     {this.state.viewMore == true ?

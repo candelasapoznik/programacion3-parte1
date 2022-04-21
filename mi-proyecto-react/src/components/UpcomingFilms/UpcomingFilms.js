@@ -85,7 +85,7 @@ class UpcomingFilms extends Component {
                 <div className='peliculas'>
                     { <ul className='lista peliculas'>
                         {
-                            this.state.peliculas.map((element) => <CardPelicula key={element.id+element.nombre} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
+                            this.state.peliculas.map((element,idx) => <CardPelicula key={element.title+idx} info={element} removerTarjetas={(tarjetasId)=>this.removerTarjetas(tarjetasId)}/>)
                         }
                     </ul> }
                 </div>}
