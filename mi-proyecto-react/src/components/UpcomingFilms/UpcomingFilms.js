@@ -60,7 +60,10 @@ class UpcomingFilms extends Component {
             let filtrarBusqueda= this.state.peliculasTotal.filter((element)=>element.title.toLowerCase().includes(textoRecibido.toLowerCase())) 
             if (filtrarBusqueda == 0) {
                 this.setState({leyenda:"No se encontraron resultados para tu busqueda."})
-            }
+            } else{ this.setState({
+                peliculas: filtrarBusqueda,
+                leyenda: 1
+            })}
             this.setState({
                 peliculas: filtrarBusqueda
             })
@@ -72,7 +75,7 @@ class UpcomingFilms extends Component {
                 this.state.leyenda !== null ?
                 <>
                 <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> 
-                <h3>No se encontraron resultados para tu busqueda.</h3></>
+                <h3 className='leyenda'>No se encontraron resultados para tu busqueda.</h3></>
                  : 
                 <>
                 <Header busqueda={(textoRecibido)=>this.filtrarPeliculas(textoRecibido)}/> 

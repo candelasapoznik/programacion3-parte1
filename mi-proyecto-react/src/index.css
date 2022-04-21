@@ -23,7 +23,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color:#000000;
 }
-
+.leyenda{
+  color: white;
+  text-align: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
